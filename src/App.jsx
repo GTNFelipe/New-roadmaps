@@ -12972,9 +12972,9 @@ function App() {
 
       {/* Top Banner Fixo (Dinâmico) */}
       <div className="bg-gradient-to-r from-blue-900/40 via-purple-900/40 to-blue-900/40 text-slate-300 py-2 px-4 text-center text-xs sm:text-sm font-medium tracking-wide border-b border-purple-500/20 backdrop-blur-md sticky top-0 z-50">
-        <Sparkles className="inline-block w-4 h-4 mr-2 text-cyan-400 animate-pulse" />
+        <Terminal className="inline-block w-4 h-4 mr-2 text-cyan-400 animate-pulse" />
         {t[`banner_${activePhase}`]}
-        <Sparkles className="inline-block w-4 h-4 ml-2 text-cyan-400 animate-pulse" />
+        <Terminal className="inline-block w-4 h-4 ml-2 text-cyan-400 animate-pulse" />
       </div>
 
       {/* Header Premium */}
