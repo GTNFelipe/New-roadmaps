@@ -13278,7 +13278,7 @@ function App() {
 
                 {PJ_MANUAL.map((item, index) => (
                   <div key={index} className="space-y-1">
-                    <h3 className="text-xs font-bold text-zinc-300 flex items-center gap-2">
+                    <h3 className="text-sm font-bold text-zinc-200 flex items-center gap-2">
                       {item.icon}
                       {t[item.titleKey]}
                     </h3>
