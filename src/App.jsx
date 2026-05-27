@@ -13068,8 +13068,8 @@ function App() {
                     : 'bg-zinc-900/50 text-zinc-400 hover:bg-zinc-900 hover:text-zinc-200 border-zinc-900'
                   }`}
               >
-                <span className="font-bold text-zinc-300">{t[`${p.id}_title`]}</span>
-                <span className="text-[10px] text-zinc-500 mt-0.5">{t[`${p.id}_subtitle`]}</span>
+                <span className="font-bold text-sm text-zinc-300">{t[`${p.id}_title`]}</span>
+                <span className="text-xs text-zinc-500 mt-0.5">{t[`${p.id}_subtitle`]}</span>
               </button>
             ))}
           </div>
@@ -13261,7 +13261,7 @@ function App() {
                         <Circle className="w-4.5 h-4.5 text-zinc-700 group-hover:text-blue-400 transition-colors active:scale-90" />
                       )}
                     </div>
-                    <span className={`text-[11px] sm:text-xs leading-relaxed transition-colors ${isCompleted ? 'text-zinc-600 line-through border-zinc-800' : 'text-zinc-300'
+                    <span className={`text-xs sm:text-sm leading-relaxed transition-colors ${isCompleted ? 'text-zinc-600 line-through border-zinc-800' : 'text-zinc-300'
                       }`}>
                       {t[habitId]}
                     </span>
@@ -13287,7 +13287,7 @@ function App() {
             <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isPjManualOpen ? 'max-h-[850px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
               }`}>
               <div className="p-5 space-y-4 bg-zinc-950/20">
-                <p className="text-[11px] text-zinc-500 border-l-2 border-emerald-500/50 pl-3 italic">
+                <p className="text-xs text-zinc-500 border-l-2 border-emerald-500/50 pl-3 italic">
                   {t.pjManualSubtitle}
                 </p>
 
@@ -13297,7 +13297,7 @@ function App() {
                       {item.icon}
                       {t[item.titleKey]}
                     </h3>
-                    <p className="text-[11px] text-zinc-400 leading-relaxed pl-6">
+                    <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed pl-6">
                       {t[item.textKey]}
                     </p>
                   </div>
