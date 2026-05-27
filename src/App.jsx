@@ -38,7 +38,8 @@ import {
   Binary,
   Table2,
   Activity,
-  GitMerge
+  GitMerge,
+  Coffee
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -455,30 +456,14 @@ const PJ_MANUAL = [
   { icon: <ShieldCheck className="w-4 h-4 text-purple-400" />, titleKey: "pj3_title", textKey: "pj3_text" }
 ];
 
-const JavaIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-5 h-5 shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M8.5 2c0.3 1.2 1.2 1.8 1.5 3c0.3 1.2-0.3 2-0.8 3" stroke="#3b82f6" strokeWidth="1.5" strokeLinecap="round" />
-    <path d="M12.5 1c0.3 1.5 1.5 2 1.5 4c0 1.5-0.8 2.5-1.2 3.5" stroke="#60a5fa" strokeWidth="1.5" strokeLinecap="round" />
-    <path d="M16.5 2c0.3 1.2 1.2 1.8 1.5 3c0.3 1.2-0.3 2-0.8 3" stroke="#3b82f6" strokeWidth="1.5" strokeLinecap="round" />
-    <path d="M5 10c0 0 0.5 6.5 6.5 7.5c6 1 7.5-7.5 7.5-7.5H5Z" fill="url(#javaCupGrad)" stroke="#f97316" strokeWidth="1.5" strokeLinejoin="round" />
-    <path d="M19 12c1.5 0 2.5 0.8 2.5 2s-1 2-2.5 2" stroke="#f97316" strokeWidth="1.5" strokeLinecap="round" />
-    <path d="M3 21h16c1.5 0 2-1 2-1s-1 1-3 1H5c-2 0-2-1-2-1s0.5 1 2 1Z" fill="#3b82f6" opacity="0.8" />
-    <path d="M2 19.5c4 1.5 12 1.5 16 0" stroke="#3b82f6" strokeWidth="1.5" strokeLinecap="round" />
-    <defs>
-      <linearGradient id="javaCupGrad" x1="5" y1="10" x2="19" y2="17" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stopColor="#ef4444" />
-        <stop offset="100%" stopColor="#f97316" />
-      </linearGradient>
-    </defs>
-  </svg>
-);
+
 
 const PHASES = [
   {
     id: 'phase1',
     schedule: [
       { id: 'p1-mon', dayKey: 'monday', topicKey: 'p1_mon_top', icon: <Terminal className="w-5 h-5 text-purple-400" />, tasks: ['p1_mon_t1', 'p1_mon_t2', 'p1_mon_t3'] },
-      { id: 'p1-tue', dayKey: 'tuesday', topicKey: 'p1_tue_top', icon: <JavaIcon />, tasks: ['p1_tue_t1', 'p1_tue_t2', 'p1_tue_t3'] },
+      { id: 'p1-tue', dayKey: 'tuesday', topicKey: 'p1_tue_top', icon: <Coffee className="w-5 h-5 text-orange-400" />, tasks: ['p1_tue_t1', 'p1_tue_t2', 'p1_tue_t3'] },
       { id: 'p1-wed', dayKey: 'wednesday', topicKey: 'p1_wed_top', icon: <Database className="w-5 h-5 text-emerald-400" />, tasks: ['p1_wed_t1', 'p1_wed_t2', 'p1_wed_t3'] },
       { id: 'p1-thu', dayKey: 'thursday', topicKey: 'p1_thu_top', icon: <FileText className="w-5 h-5 text-cyan-400" />, tasks: ['p1_thu_t1', 'p1_thu_t2', 'p1_thu_t3'] },
       { id: 'p1-fri', dayKey: 'friday', topicKey: 'p1_fri_top', icon: <Wrench className="w-5 h-5 text-pink-400" />, tasks: ['p1_fri_t1', 'p1_fri_t2', 'p1_fri_t3'] }
