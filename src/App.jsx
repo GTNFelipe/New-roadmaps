@@ -451,9 +451,9 @@ const T = {
 const HABITS = ['h1', 'h2', 'h3'];
 
 const PJ_MANUAL = [
-  { icon: <Target className="w-4 h-4 text-emerald-400" />, titleKey: "pj1_title", textKey: "pj1_text" },
-  { icon: <Briefcase className="w-4 h-4 text-blue-400" />, titleKey: "pj2_title", textKey: "pj2_text" },
-  { icon: <ShieldCheck className="w-4 h-4 text-purple-400" />, titleKey: "pj3_title", textKey: "pj3_text" }
+  { icon: <Target className="w-4 h-4 text-cyan-400" />, titleKey: "pj1_title", textKey: "pj1_text", titleColor: "text-cyan-400", descColor: "text-cyan-300/80" },
+  { icon: <Briefcase className="w-4 h-4 text-pink-500" />, titleKey: "pj2_title", textKey: "pj2_text", titleColor: "text-pink-500", descColor: "text-pink-300/80" },
+  { icon: <ShieldCheck className="w-4 h-4 text-purple-400" />, titleKey: "pj3_title", textKey: "pj3_text", titleColor: "text-purple-400", descColor: "text-purple-300/80" }
 ];
 
 
@@ -12956,7 +12956,7 @@ function App() {
     <div className="min-h-screen bg-zinc-950 text-slate-200 font-sans selection:bg-purple-500/30">
 
       {/* Top Banner Fixo (Dinâmico) */}
-      <div className="bg-gradient-to-r from-blue-900/40 via-purple-900/40 to-blue-900/40 text-slate-300 py-2 px-4 text-center text-xs sm:text-sm font-medium tracking-wide border-b border-purple-500/20 backdrop-blur-md sticky top-0 z-50">
+      <div className="bg-zinc-950 text-pink-500 py-2 px-4 text-center text-xs sm:text-sm font-semibold tracking-wide border-b border-pink-500/20 backdrop-blur-md sticky top-0 z-50">
         <Terminal className="inline-block w-4 h-4 mr-2 text-cyan-400 animate-pulse" />
         {t[`banner_${activePhase}`]}
         <Terminal className="inline-block w-4 h-4 ml-2 text-cyan-400 animate-pulse" />
@@ -12966,37 +12966,39 @@ function App() {
       <header className="bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-900 shadow-2xl relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-6">
-            <div>
-              <h1 className="text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 flex items-center gap-2">
-                <Compass className="w-6 h-6 text-blue-500 shrink-0" />
-                <span>{t.title}</span>
-              </h1>
-              <p className="text-zinc-400 text-sm mt-1">{t.subtitle}</p>
+            <div className="flex items-center gap-4 w-full xl:w-auto xl:flex-1 justify-center">
+              <Compass className="w-10 h-10 text-cyan-400 shrink-0" />
+              <div className="flex flex-col items-center text-center justify-center">
+                <h1 className="text-base sm:text-lg font-extrabold text-pink-500 uppercase tracking-wider drop-shadow-[0_0_10px_rgba(236,72,153,0.3)] text-center max-w-3xl w-full">
+                  {t.title}
+                </h1>
+                <p className="text-cyan-300 text-[10px] sm:text-xs mt-1.5 uppercase font-bold tracking-wider text-center w-full">{t.subtitle}</p>
+              </div>
             </div>
 
             {/* Header Control Panel */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-6">
               <div className="flex flex-col items-end w-full sm:w-auto">
-                <span className="text-[10px] font-bold text-zinc-400 mb-1 flex justify-between w-full uppercase tracking-wider">
-                  <span>{t.progressMacro}</span>
-                  <span className="text-emerald-400 font-mono">{globalPercentage}%</span>
+                <span className="text-[11px] sm:text-xs font-extrabold mb-1 flex justify-between w-full uppercase tracking-wider">
+                  <span className="text-cyan-400 drop-shadow-[0_0_6px_rgba(6,182,212,0.3)]">{t.progressMacro}</span>
+                  <span className="text-cyan-300 font-mono font-extrabold">{globalPercentage}%</span>
                 </span>
-                <div className="w-full sm:w-44 h-1.5 bg-zinc-900 rounded-full overflow-hidden border border-zinc-800">
+                <div className="w-full sm:w-48 h-3 bg-zinc-950 rounded-full overflow-hidden border border-zinc-800 p-0.5">
                   <div
-                    className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-emerald-400 transition-all duration-700 ease-out shadow-[0_0_10px_rgba(56,189,248,0.5)]"
+                    className="h-full bg-cyan-500 rounded-full transition-all duration-700 ease-out shadow-[0_0_12px_rgba(6,182,212,0.6)]"
                     style={{ width: `${globalPercentage}%` }}
                   ></div>
                 </div>
               </div>
 
               <div className="flex flex-col items-end w-full sm:w-auto">
-                <span className="text-[10px] font-bold text-zinc-400 mb-1 flex justify-between w-full uppercase tracking-wider">
-                  <span>{t.progressBlock}</span>
-                  <span className="text-purple-400 font-mono">{activePhasePercentage}%</span>
+                <span className="text-[11px] sm:text-xs font-extrabold mb-1 flex justify-between w-full uppercase tracking-wider">
+                  <span className="text-pink-400 drop-shadow-[0_0_6px_rgba(236,72,153,0.3)]">{t.progressBlock}</span>
+                  <span className="text-pink-300 font-mono font-extrabold">{activePhasePercentage}%</span>
                 </span>
-                <div className="w-full sm:w-44 h-1.5 bg-zinc-900 rounded-full overflow-hidden border border-zinc-800">
+                <div className="w-full sm:w-48 h-3 bg-zinc-950 rounded-full overflow-hidden border border-zinc-800 p-0.5">
                   <div
-                    className="h-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-700 ease-out shadow-[0_0_10px_rgba(168,85,247,0.5)]"
+                    className="h-full bg-pink-500 rounded-full transition-all duration-700 ease-out shadow-[0_0_12px_rgba(236,72,153,0.6)]"
                     style={{ width: `${activePhasePercentage}%` }}
                   ></div>
                 </div>
@@ -13007,36 +13009,36 @@ function App() {
                 <button
                   onClick={handleDailyCheckin}
                   disabled={isCheckedInToday}
-                  className={`px-3 py-2 flex items-center gap-2 text-xs font-bold rounded-lg transition-all border active:scale-95 ${isCheckedInToday
-                      ? 'bg-emerald-950/20 text-emerald-400 border-emerald-500/30 cursor-not-allowed shadow-[0_0_10px_rgba(16,185,129,0.1)]'
-                      : 'bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white border-amber-500/50 shadow-[0_0_15px_rgba(245,158,11,0.2)] animate-pulse'
+                  className={`px-3 py-2 flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider rounded-lg transition-all border active:scale-95 ${isCheckedInToday
+                    ? 'bg-cyan-950/20 text-cyan-400 border-cyan-500/30 cursor-not-allowed shadow-[0_0_10px_rgba(6,182,212,0.2)]'
+                    : 'bg-orange-950/30 text-orange-400 border-orange-500 hover:bg-orange-950/50 hover:text-orange-300 hover:border-orange-400 shadow-[0_0_20px_rgba(249,115,22,0.5)] animate-pulse'
                     }`}
                   title={isCheckedInToday ? t.checkinClaimed : t.checkinActive}
                 >
-                  <Flame className={`w-4 h-4 ${isCheckedInToday ? 'text-emerald-400 fill-emerald-400' : 'text-white fill-amber-300'}`} />
+                  <Flame className={`w-4 h-4 ${isCheckedInToday ? 'text-cyan-400 fill-cyan-400' : 'text-orange-400 fill-orange-400 animate-bounce'}`} />
                   <span>{isCheckedInToday ? t.checkinClaimed : t.checkinActive}</span>
                 </button>
                 <button
                   onClick={toggleLanguage}
-                  className="px-3 py-2 flex items-center gap-2 text-xs font-semibold text-zinc-300 bg-zinc-900 hover:bg-zinc-800 rounded-lg transition-all border border-zinc-800 hover:border-zinc-700 active:scale-95"
+                  className="px-3 py-2 flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider rounded-lg transition-all border border-cyan-500/40 bg-zinc-950 text-cyan-400 hover:bg-zinc-900 hover:text-cyan-300 hover:border-cyan-300 active:scale-95 shadow-[0_0_15px_rgba(6,182,212,0.15)]"
                   title="Alterar Idioma / Change Language"
                 >
-                  <Languages className="w-4 h-4 text-emerald-400" />
+                  <Languages className="w-4 h-4 text-cyan-400" />
                   <span>{lang.toUpperCase()}</span>
                 </button>
                 <button
                   onClick={resetCurrentPhase}
-                  className="p-2 flex items-center justify-center text-zinc-300 bg-zinc-900 hover:bg-zinc-800 rounded-lg transition-all border border-zinc-800 hover:border-zinc-700 active:scale-95"
+                  className="p-2 flex items-center justify-center rounded-lg transition-all border border-purple-500/40 bg-zinc-950 text-purple-400 hover:bg-zinc-900 hover:text-purple-300 hover:border-purple-300 active:scale-95 shadow-[0_0_15px_rgba(168,85,247,0.15)]"
                   title={t.resetBlock}
                 >
-                  <RotateCcw className="w-4 h-4 text-blue-400" />
+                  <RotateCcw className="w-4 h-4 text-purple-400" />
                 </button>
                 <button
                   onClick={clearAllData}
-                  className="p-2 flex items-center justify-center text-zinc-400 hover:text-red-400 bg-zinc-900 hover:bg-red-950/30 rounded-lg transition-all border border-zinc-800 hover:border-red-900/50 active:scale-95"
+                  className="p-2 flex items-center justify-center rounded-lg transition-all border border-red-500/40 bg-zinc-950 text-red-500 hover:bg-zinc-900 hover:text-red-400 hover:border-red-400 active:scale-95 shadow-[0_0_15px_rgba(239,68,68,0.15)]"
                   title="Limpar Tudo / Clear All History"
                 >
-                  <Trash2 className="w-4 h-4" />
+                  <Trash2 className="w-4 h-4 text-red-500" />
                 </button>
               </div>
             </div>
@@ -13044,19 +13046,56 @@ function App() {
 
           {/* Navigation Tabs (Horizontal Scrollable) */}
           <div className="mt-6 flex overflow-x-auto gap-2 pb-2 scrollbar-hide">
-            {PHASES.map(p => (
-              <button
-                key={p.id}
-                onClick={() => handlePhaseChange(p.id)}
-                className={`px-4 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all whitespace-nowrap flex flex-col items-start min-w-[140px] border ${activePhase === p.id
-                    ? 'bg-gradient-to-b from-purple-900/50 to-blue-900/50 text-white shadow-[0_0_15px_rgba(147,51,234,0.15)] border-purple-500/50'
-                    : 'bg-zinc-900/50 text-zinc-400 hover:bg-zinc-900 hover:text-zinc-200 border-zinc-900'
-                  }`}
-              >
-                <span className="font-bold text-sm text-zinc-300">{t[`${p.id}_title`]}</span>
-                <span className="text-xs text-zinc-500 mt-0.5">{t[`${p.id}_subtitle`]}</span>
-              </button>
-            ))}
+            {PHASES.map(p => {
+              const isActive = activePhase === p.id;
+              const PHASE_STYLE = {
+                phase1: {
+                  active: 'bg-zinc-950 text-purple-400 border-purple-500/50 shadow-[0_0_15px_rgba(168,85,247,0.25)] font-extrabold uppercase',
+                  inactive: 'bg-zinc-900/50 text-zinc-400 hover:bg-zinc-900/80 hover:text-purple-300 hover:border-purple-500/30 hover:shadow-[0_0_10px_rgba(168,85,247,0.08)] border-zinc-900 font-medium text-xs sm:text-sm',
+                  activeTitle: 'text-purple-300',
+                  activeSubtitle: 'text-purple-400/80'
+                },
+                phase2: {
+                  active: 'bg-zinc-950 text-pink-500 border-pink-500/50 shadow-[0_0_15px_rgba(236,72,153,0.25)] font-extrabold uppercase',
+                  inactive: 'bg-zinc-900/50 text-zinc-400 hover:bg-zinc-900/80 hover:text-pink-300 hover:border-pink-500/30 hover:shadow-[0_0_10px_rgba(236,72,153,0.08)] border-zinc-900 font-medium text-xs sm:text-sm',
+                  activeTitle: 'text-pink-300',
+                  activeSubtitle: 'text-pink-400/80'
+                },
+                phase3: {
+                  active: 'bg-zinc-950 text-yellow-300 border-yellow-500/50 shadow-[0_0_15px_rgba(234,179,8,0.25)] font-extrabold uppercase',
+                  inactive: 'bg-zinc-900/50 text-zinc-400 hover:bg-zinc-900/80 hover:text-yellow-200 hover:border-yellow-500/30 hover:shadow-[0_0_10px_rgba(234,179,8,0.08)] border-zinc-900 font-medium text-xs sm:text-sm',
+                  activeTitle: 'text-yellow-200',
+                  activeSubtitle: 'text-yellow-300/80'
+                },
+                phase4: {
+                  active: 'bg-zinc-950 text-cyan-400 border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.25)] font-extrabold uppercase',
+                  inactive: 'bg-zinc-900/50 text-zinc-400 hover:bg-zinc-900/80 hover:text-cyan-300 hover:border-cyan-500/30 hover:shadow-[0_0_10px_rgba(6,182,212,0.08)] border-zinc-900 font-medium text-xs sm:text-sm',
+                  activeTitle: 'text-cyan-300',
+                  activeSubtitle: 'text-cyan-400/80'
+                },
+                phase5: {
+                  active: 'bg-zinc-950 text-blue-400 border-blue-500/50 shadow-[0_0_15px_rgba(59,130,246,0.25)] font-extrabold uppercase',
+                  inactive: 'bg-zinc-900/50 text-zinc-400 hover:bg-zinc-900/80 hover:text-blue-300 hover:border-blue-500/30 hover:shadow-[0_0_10px_rgba(59,130,246,0.08)] border-zinc-900 font-medium text-xs sm:text-sm',
+                  activeTitle: 'text-blue-300',
+                  activeSubtitle: 'text-blue-400/80'
+                }
+              };
+              const pStyle = PHASE_STYLE[p.id] || PHASE_STYLE.phase1;
+              return (
+                <button
+                  key={p.id}
+                  onClick={() => handlePhaseChange(p.id)}
+                  className={`px-4 py-2.5 rounded-xl transition-all whitespace-nowrap flex flex-col items-start min-w-[140px] border group ${isActive ? pStyle.active : pStyle.inactive}`}
+                >
+                  <span className={`font-bold text-sm transition-colors ${isActive ? pStyle.activeTitle : 'text-zinc-300 group-hover:text-zinc-100'}`}>
+                    {t[`${p.id}_title`]}
+                  </span>
+                  <span className={`text-xs mt-0.5 transition-colors ${isActive ? pStyle.activeSubtitle : 'text-zinc-500'}`}>
+                    {t[`${p.id}_subtitle`]}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
       </header>
@@ -13067,12 +13106,42 @@ function App() {
         {/* Left Column: Weekday Accordions (70%) */}
         <section className="flex-1 min-w-0 space-y-6">
           <div className="mb-6">
-            <h2 className="text-2xl font-extrabold text-zinc-100 flex items-center gap-2">
-              <span className="text-purple-400">{t[`${activePhaseData.id}_title`]}:</span> {t[`${activePhaseData.id}_subtitle`]}
-            </h2>
-            <p className="text-zinc-400 text-sm leading-relaxed border-l-2 border-purple-500/50 pl-4 mt-3">
-              {t[`${activePhaseData.id}_desc`]}
-            </p>
+            {(() => {
+              const HEADER_STYLE = {
+                phase1: {
+                  title: 'text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.4)]',
+                  desc: 'text-purple-300 border-purple-500'
+                },
+                phase2: {
+                  title: 'text-pink-500 drop-shadow-[0_0_8px_rgba(236,72,153,0.4)]',
+                  desc: 'text-pink-300 border-pink-500'
+                },
+                phase3: {
+                  title: 'text-yellow-300 drop-shadow-[0_0_8px_rgba(234,179,8,0.4)]',
+                  desc: 'text-yellow-200 border-yellow-500'
+                },
+                phase4: {
+                  title: 'text-cyan-400 drop-shadow-[0_0_8px_rgba(6,182,212,0.4)]',
+                  desc: 'text-cyan-300 border-cyan-500'
+                },
+                phase5: {
+                  title: 'text-blue-400 drop-shadow-[0_0_8px_rgba(59,130,246,0.4)]',
+                  desc: 'text-blue-300 border-blue-500'
+                }
+              };
+              const hStyle = HEADER_STYLE[activePhaseData.id] || HEADER_STYLE.phase1;
+              return (
+                <>
+                  <h2 className="text-2xl font-extrabold flex items-center gap-2">
+                    <span className={`${hStyle.title}`}>{t[`${activePhaseData.id}_title`]}:</span>
+                    <span className="text-zinc-100 drop-shadow-[0_0_8px_rgba(255,255,255,0.15)]">{t[`${activePhaseData.id}_subtitle`]}</span>
+                  </h2>
+                  <p className={`${hStyle.desc} text-sm leading-relaxed border-l-2 pl-4 mt-3`}>
+                    {t[`${activePhaseData.id}_desc`]}
+                  </p>
+                </>
+              );
+            })()}
           </div>
 
           <div className="space-y-4">
@@ -13081,12 +13150,112 @@ function App() {
               const isDayComplete = dayCompletedTasks === day.tasks.length;
               const isExpanded = expandedDay === day.id;
 
+              const colorMatch = day.icon.props.className.match(/text-(\w+)-\d+/);
+              const colorName = colorMatch ? colorMatch[1] : 'purple';
+
+              const COLOR_MAP = {
+                purple: {
+                  text: 'text-purple-400',
+                  textDim: 'text-purple-400/80',
+                  border: 'border-purple-500/20',
+                  borderHover: 'group-hover:border-purple-500/40',
+                  bgHover: 'hover:bg-purple-950/30',
+                  bgCardActive: 'bg-zinc-900/60 border-purple-500/40 shadow-purple-500/10',
+                  bgCardInactive: 'bg-zinc-900/40 border-zinc-900 hover:border-purple-500/30 hover:shadow-purple-500/5 hover:bg-zinc-900/60',
+                  textHover: 'group-hover:text-purple-300',
+                  taskText: 'text-purple-300/90',
+                  taskTextHover: 'group-hover:text-purple-200',
+                  taskBorderHover: 'hover:border-purple-500/25',
+                  taskShadowHover: 'hover:shadow-[0_0_10px_rgba(168,85,247,0.08)]',
+                  taskCheckHover: 'group-hover:text-purple-400'
+                },
+                orange: {
+                  text: 'text-orange-400',
+                  textDim: 'text-orange-400/80',
+                  border: 'border-orange-500/20',
+                  borderHover: 'group-hover:border-orange-500/40',
+                  bgHover: 'hover:bg-orange-950/30',
+                  bgCardActive: 'bg-zinc-900/60 border-orange-500/40 shadow-orange-500/10',
+                  bgCardInactive: 'bg-zinc-900/40 border-zinc-900 hover:border-orange-500/30 hover:shadow-orange-500/5 hover:bg-zinc-900/60',
+                  textHover: 'group-hover:text-orange-300',
+                  taskText: 'text-orange-300/90',
+                  taskTextHover: 'group-hover:text-orange-200',
+                  taskBorderHover: 'hover:border-orange-500/25',
+                  taskShadowHover: 'hover:shadow-[0_0_10px_rgba(249,115,22,0.08)]',
+                  taskCheckHover: 'group-hover:text-orange-400'
+                },
+                emerald: {
+                  text: 'text-emerald-400',
+                  textDim: 'text-emerald-400/80',
+                  border: 'border-emerald-500/20',
+                  borderHover: 'group-hover:border-emerald-500/40',
+                  bgHover: 'hover:bg-emerald-950/30',
+                  bgCardActive: 'bg-zinc-900/60 border-emerald-500/40 shadow-emerald-500/10',
+                  bgCardInactive: 'bg-zinc-900/40 border-zinc-900 hover:border-emerald-500/30 hover:shadow-emerald-500/5 hover:bg-zinc-900/60',
+                  textHover: 'group-hover:text-emerald-300',
+                  taskText: 'text-emerald-300/90',
+                  taskTextHover: 'group-hover:text-emerald-200',
+                  taskBorderHover: 'hover:border-emerald-500/25',
+                  taskShadowHover: 'hover:shadow-[0_0_10px_rgba(16,185,129,0.08)]',
+                  taskCheckHover: 'group-hover:text-emerald-400'
+                },
+                cyan: {
+                  text: 'text-cyan-400',
+                  textDim: 'text-cyan-400/80',
+                  border: 'border-cyan-500/20',
+                  borderHover: 'group-hover:border-cyan-500/40',
+                  bgHover: 'hover:bg-cyan-950/30',
+                  bgCardActive: 'bg-zinc-900/60 border-cyan-500/40 shadow-cyan-500/10',
+                  bgCardInactive: 'bg-zinc-900/40 border-zinc-900 hover:border-cyan-500/30 hover:shadow-cyan-500/5 hover:bg-zinc-900/60',
+                  textHover: 'group-hover:text-cyan-300',
+                  taskText: 'text-cyan-300/90',
+                  taskTextHover: 'group-hover:text-cyan-200',
+                  taskBorderHover: 'hover:border-cyan-500/25',
+                  taskShadowHover: 'hover:shadow-[0_0_10px_rgba(6,182,212,0.08)]',
+                  taskCheckHover: 'group-hover:text-cyan-400'
+                },
+                pink: {
+                  text: 'text-pink-400',
+                  textDim: 'text-pink-400/80',
+                  border: 'border-pink-500/20',
+                  borderHover: 'group-hover:border-pink-500/40',
+                  bgHover: 'hover:bg-pink-950/30',
+                  bgCardActive: 'bg-zinc-900/60 border-pink-500/40 shadow-pink-500/10',
+                  bgCardInactive: 'bg-zinc-900/40 border-zinc-900 hover:border-pink-500/30 hover:shadow-pink-500/5 hover:bg-zinc-900/60',
+                  textHover: 'group-hover:text-pink-300',
+                  taskText: 'text-pink-300/90',
+                  taskTextHover: 'group-hover:text-pink-200',
+                  taskBorderHover: 'hover:border-pink-500/25',
+                  taskShadowHover: 'hover:shadow-[0_0_10px_rgba(236,72,153,0.08)]',
+                  taskCheckHover: 'group-hover:text-pink-400'
+                },
+                blue: {
+                  text: 'text-blue-400',
+                  textDim: 'text-blue-400/80',
+                  border: 'border-blue-500/20',
+                  borderHover: 'group-hover:border-blue-500/40',
+                  bgHover: 'hover:bg-blue-950/30',
+                  bgCardActive: 'bg-zinc-900/60 border-blue-500/40 shadow-blue-500/10',
+                  bgCardInactive: 'bg-zinc-900/40 border-zinc-900 hover:border-blue-500/30 hover:shadow-blue-500/5 hover:bg-zinc-900/60',
+                  textHover: 'group-hover:text-blue-300',
+                  taskText: 'text-blue-300/90',
+                  taskTextHover: 'group-hover:text-blue-200',
+                  taskBorderHover: 'hover:border-blue-500/25',
+                  taskShadowHover: 'hover:shadow-[0_0_10px_rgba(59,130,246,0.08)]',
+                  taskCheckHover: 'group-hover:text-blue-400'
+                }
+              };
+
+              const style = COLOR_MAP[colorName] || COLOR_MAP.purple;
+
               return (
                 <div
                   key={day.id}
-                  className={`rounded-2xl transition-all duration-300 border ${isDayComplete
+                  className={`rounded-2xl transition-all duration-300 border group ${isDayComplete
                       ? 'bg-emerald-950/10 border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.05)]'
-                      : 'bg-zinc-900/40 border-zinc-900 hover:border-zinc-800/80 hover:bg-zinc-900/60'
+                      : isExpanded
+                        ? style.bgCardActive
+                        : style.bgCardInactive
                     }`}
                 >
                   {/* Accordion Trigger */}
@@ -13095,24 +13264,28 @@ function App() {
                     onClick={() => toggleDayAccordion(day.id)}
                   >
                     <div className="flex items-center gap-4">
-                      <div className={`p-2.5 rounded-xl transition-colors ${isDayComplete ? 'bg-emerald-500/10 text-emerald-400' : 'bg-zinc-950 border border-zinc-800'}`}>
+                      <div className={`p-2.5 rounded-xl transition-all ${isDayComplete ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' : `bg-zinc-950 border ${style.border} ${style.text} ${style.borderHover}`}`}>
                         {day.icon}
                       </div>
                       <div>
-                        <h3 className="font-bold text-sm sm:text-base text-zinc-100">{t[day.dayKey]}</h3>
-                        <p className="text-zinc-400 text-xs sm:text-sm mt-0.5">{t[day.topicKey]}</p>
+                        <h3 className={`font-extrabold text-sm sm:text-base transition-colors uppercase tracking-wider ${style.text}`}>
+                          {t[day.dayKey]}
+                        </h3>
+                        <p className={`text-xs sm:text-sm mt-0.5 transition-colors ${style.textDim} group-hover:text-zinc-200`}>
+                          {t[day.topicKey]}
+                        </p>
                       </div>
                     </div>
 
                     <div className="flex items-center gap-3 shrink-0" onClick={(e) => e.stopPropagation()}>
-                      <span className="text-[10px] font-mono font-bold px-2 py-1 rounded bg-zinc-950 border border-zinc-800 text-zinc-300">
+                      <span className={`text-[10px] font-mono font-bold px-2 py-1 rounded bg-zinc-950 border ${style.border} ${style.text} ${style.borderHover} group-hover:text-zinc-200 transition-all`}>
                         {dayCompletedTasks} / {day.tasks.length}
                       </span>
                       <button
                         onClick={() => toggleDayAccordion(day.id)}
-                        className="p-1.5 hover:bg-zinc-800 rounded-lg text-zinc-400 transition-colors"
+                        className={`p-1.5 ${style.bgHover} rounded-lg text-zinc-400 transition-colors`}
                       >
-                        {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                        {isExpanded ? <ChevronUp className={`w-4 h-4 ${style.text}`} /> : <ChevronDown className={`w-4 h-4 ${style.text}`} />}
                       </button>
                     </div>
                   </div>
@@ -13126,7 +13299,7 @@ function App() {
                         return (
                           <label
                             key={taskId}
-                            className="flex items-start gap-3.5 p-3 rounded-xl hover:bg-zinc-900/40 cursor-pointer transition-all group border border-transparent hover:border-zinc-800/40"
+                            className={`flex items-start gap-3.5 p-3 rounded-xl hover:bg-zinc-900/40 cursor-pointer transition-all group border border-transparent ${style.taskBorderHover} ${style.taskShadowHover}`}
                           >
                             <div className="pt-0.5 shrink-0" onClick={(e) => e.stopPropagation()}>
                               <input
@@ -13138,11 +13311,10 @@ function App() {
                               {isCompleted ? (
                                 <CheckCircle2 className="w-5 h-5 text-emerald-400 drop-shadow-[0_0_8px_rgba(16,185,129,0.5)] active:scale-90 transition-transform" />
                               ) : (
-                                <Circle className="w-5 h-5 text-zinc-700 group-hover:text-purple-400 transition-all active:scale-90" />
+                                <Circle className={`w-5 h-5 text-zinc-700 ${style.taskCheckHover} transition-all active:scale-90`} />
                               )}
                             </div>
-                            <span className={`text-xs sm:text-sm leading-relaxed transition-colors ${isCompleted ? 'text-zinc-600 line-through' : 'text-zinc-300 group-hover:text-zinc-100'
-                              }`}>
+                            <span className={`text-xs sm:text-sm leading-relaxed transition-colors ${isCompleted ? 'text-zinc-600 line-through' : `${style.taskText} ${style.taskTextHover}`}`}>
                               {t[taskId]}
                             </span>
                           </label>
@@ -13154,7 +13326,7 @@ function App() {
                         <div className="pt-3 border-t border-zinc-900 flex justify-end">
                           <button
                             onClick={() => handleTriggerLinkedInModal(day)}
-                            className="px-3 py-1.5 flex items-center gap-2 text-[10px] sm:text-xs font-semibold text-blue-400 bg-blue-950/20 hover:bg-blue-950/40 border border-blue-900/40 rounded-lg transition-all active:scale-95"
+                            className="px-3 py-1.5 flex items-center gap-2 text-[10px] sm:text-xs font-bold text-pink-400 bg-pink-950/20 hover:bg-pink-950/40 border border-pink-900/40 rounded-lg transition-all active:scale-95 shadow-[0_0_8px_rgba(236,72,153,0.15)] uppercase tracking-wider"
                           >
                             <FileText className="w-3.5 h-3.5" />
                             <span>{t.linkedinBtn}</span>
@@ -13173,45 +13345,43 @@ function App() {
         <aside className="lg:w-80 space-y-6 shrink-0">
 
           {/* Gamification Widget */}
-          <div className="bg-zinc-900/40 border border-zinc-900 rounded-2xl p-6 shadow-2xl relative overflow-hidden backdrop-blur-md">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-purple-600/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
+          <div className="bg-zinc-900/40 border border-pink-500/30 rounded-2xl p-6 shadow-2xl relative overflow-hidden backdrop-blur-md">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-cyan-600/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
 
             {/* Header: Level & Streak */}
-            <div className="flex justify-between items-center mb-5">
-              <div className="flex items-center gap-2">
-                <div className="bg-purple-500/10 border border-purple-500/30 p-2 rounded-xl text-purple-400 font-bold text-xs uppercase tracking-wider">
-                  {t.levelLabel} {level}
-                </div>
+            <div className="flex justify-center items-center gap-3 mb-5">
+              <div className="bg-zinc-950 border border-pink-500 text-pink-500 font-extrabold text-xs uppercase tracking-wider py-1.5 px-3 rounded-lg shadow-[0_0_10px_rgba(236,72,153,0.15)]">
+                {t.levelLabel} {level}
               </div>
 
               {/* Streak Counter */}
               <div
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border transition-all ${streak > 0
-                    ? 'bg-amber-950/20 border-amber-500/30 text-amber-400 shadow-[0_0_12px_rgba(245,158,11,0.15)] animate-bounce'
-                    : 'bg-zinc-950 border-zinc-900 text-zinc-500'
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border transition-all ${streak > 0
+                    ? 'bg-zinc-950 border-cyan-400 text-cyan-400 shadow-[0_0_12px_rgba(6,182,212,0.15)] animate-pulse'
+                    : 'bg-zinc-950 border-zinc-800 text-zinc-500'
                   }`}
                 title={streak > 0 ? `${streak} ${t.streakActive}` : t.streakInactive}
               >
-                <Flame className={`w-4 h-4 ${streak > 0 ? 'text-amber-500 fill-amber-500' : 'text-zinc-600'}`} />
+                <Flame className={`w-4 h-4 ${streak > 0 ? 'text-cyan-400 fill-cyan-400 animate-pulse' : 'text-zinc-600'}`} />
                 <span className="text-xs font-bold font-mono">{streak}</span>
               </div>
             </div>
 
             {/* Level Title */}
-            <div className="mb-4">
-              <h4 className="text-base font-bold text-zinc-100">{getLevelTitle(level)}</h4>
-              <p className="text-xs font-semibold text-zinc-400 mt-1 uppercase tracking-wider">{t.title}</p>
+            <div className="mb-5 text-center flex flex-col items-center">
+              <h4 className="text-base font-extrabold text-cyan-400 uppercase tracking-wide">{getLevelTitle(level)}</h4>
+              <p className="text-xs font-bold text-pink-500 mt-2 uppercase tracking-wide max-w-xs">{t.title}</p>
             </div>
 
             {/* XP Progress Bar */}
             <div className="space-y-2">
-              <div className="flex justify-between text-[10px] font-bold text-zinc-400">
-                <span>{t.nextLevelLabel}</span>
-                <span className="font-mono">{xp} / {xpNeeded} XP</span>
+              <div className="flex justify-between text-xs sm:text-sm font-extrabold text-zinc-300">
+                <span className="text-pink-400 drop-shadow-[0_0_6px_rgba(236,72,153,0.3)]">{t.nextLevelLabel}</span>
+                <span className="font-mono text-cyan-400 drop-shadow-[0_0_6px_rgba(6,182,212,0.3)]">{xp} / {xpNeeded} XP</span>
               </div>
-              <div className="w-full h-2.5 bg-zinc-950 border border-zinc-800 rounded-full overflow-hidden p-0.5">
+              <div className="w-full h-4 bg-zinc-950 border border-zinc-800 rounded-full overflow-hidden p-0.5">
                 <div
-                  className="h-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-full transition-all duration-500"
+                  className="h-full bg-pink-500 rounded-full transition-all duration-500 shadow-[0_0_12px_rgba(236,72,153,0.6)]"
                   style={{ width: `${xpPercentage}%` }}
                 ></div>
               </div>
@@ -13219,9 +13389,9 @@ function App() {
           </div>
 
           {/* Daily English Habits Widget */}
-          <div className="bg-zinc-900/40 border border-zinc-900 rounded-2xl p-6 shadow-2xl relative overflow-hidden backdrop-blur-md">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-blue-600/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
-            <h2 className="text-xs font-bold mb-4 flex items-center gap-2 text-blue-400 uppercase tracking-widest">
+          <div className="bg-zinc-900/40 border border-cyan-500/30 rounded-2xl p-6 shadow-2xl relative overflow-hidden backdrop-blur-md shadow-cyan-500/5">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-cyan-600/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
+            <h2 className="text-xs font-extrabold mb-4 flex items-center justify-center gap-2 text-cyan-400 uppercase tracking-wider drop-shadow-[0_0_8px_rgba(6,182,212,0.4)] text-center">
               <Headphones className="w-4 h-4" />
               {t.dailyHabits}
             </h2>
@@ -13231,7 +13401,7 @@ function App() {
                 return (
                   <label
                     key={habitId}
-                    className="flex items-start gap-3 p-2.5 -mx-2 rounded-xl hover:bg-zinc-900/40 cursor-pointer transition-colors group border border-transparent hover:border-zinc-800/20"
+                    className="flex items-start gap-3.5 p-2.5 -mx-2 rounded-xl hover:bg-zinc-900/40 cursor-pointer transition-colors group border border-transparent hover:border-zinc-800/20"
                   >
                     <div className="pt-0.5 shrink-0" onClick={(e) => e.stopPropagation()}>
                       <input
@@ -13241,12 +13411,12 @@ function App() {
                         onChange={() => handleToggleTask(habitId, true)}
                       />
                       {isCompleted ? (
-                        <CheckCircle2 className="w-4.5 h-4.5 text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.5)] active:scale-90 transition-transform" />
+                        <CheckCircle2 className="w-5 h-5 text-cyan-400 drop-shadow-[0_0_8px_rgba(6,182,212,0.5)] active:scale-90 transition-transform" />
                       ) : (
-                        <Circle className="w-4.5 h-4.5 text-zinc-700 group-hover:text-blue-400 transition-colors active:scale-90" />
+                        <Circle className="w-5 h-5 text-zinc-700 group-hover:text-cyan-400 group-hover:drop-shadow-[0_0_8px_rgba(6,182,212,0.4)] transition-all active:scale-90" />
                       )}
                     </div>
-                    <span className={`text-xs sm:text-sm leading-relaxed transition-colors ${isCompleted ? 'text-zinc-600 line-through border-zinc-800' : 'text-zinc-300'
+                    <span className={`text-xs sm:text-sm leading-relaxed transition-colors ${isCompleted ? 'text-zinc-600 line-through' : 'text-pink-300'
                       }`}>
                       {t[habitId]}
                     </span>
@@ -13257,32 +13427,32 @@ function App() {
           </div>
 
           {/* Manual PJ Brasil (Accordion) */}
-          <div className="bg-zinc-900/40 border border-zinc-900 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-md">
+          <div className="bg-zinc-900/40 border border-pink-500/30 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-md shadow-pink-500/5">
             <div
-              className="p-5 cursor-pointer flex items-center justify-between bg-zinc-900/80 border-b border-zinc-900 hover:bg-zinc-900 transition-colors"
+              className="p-5 cursor-pointer flex items-center justify-between bg-zinc-900/80 border-b border-pink-500/10 hover:bg-zinc-900 transition-colors"
               onClick={() => setIsPjManualOpen(!isPjManualOpen)}
             >
-              <h2 className="text-xs font-bold flex items-center gap-2.5 text-emerald-400 uppercase tracking-widest">
+              <h2 className="text-xs font-extrabold flex items-center gap-2.5 text-pink-500 uppercase tracking-wider drop-shadow-[0_0_8px_rgba(236,72,153,0.4)]">
                 <FileText className="w-4.5 h-4.5" />
                 {t.pjManual}
               </h2>
-              {isPjManualOpen ? <ChevronUp className="w-4.5 h-4.5 text-zinc-500" /> : <ChevronDown className="w-4.5 h-4.5 text-zinc-500" />}
+              {isPjManualOpen ? <ChevronUp className="w-4.5 h-4.5 text-pink-500/80" /> : <ChevronDown className="w-4.5 h-4.5 text-pink-500/80" />}
             </div>
 
             <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isPjManualOpen ? 'max-h-[850px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
               }`}>
-              <div className="p-5 space-y-4 bg-zinc-950/20">
-                <p className="text-xs text-zinc-500 border-l-2 border-emerald-500/50 pl-3 italic">
+              <div className="p-5 space-y-5 bg-zinc-950/20">
+                <p className="text-[13px] sm:text-sm text-yellow-300 italic text-center w-full font-semibold drop-shadow-[0_0_6px_rgba(253,224,71,0.3)]">
                   {t.pjManualSubtitle}
                 </p>
 
                 {PJ_MANUAL.map((item, index) => (
-                  <div key={index} className="space-y-1">
-                    <h3 className="text-sm font-bold text-zinc-200 flex items-center gap-2">
+                  <div key={index} className="space-y-1.5 flex flex-col items-center text-center">
+                    <h3 className={`text-sm font-extrabold flex items-center justify-center gap-2 text-center w-full ${item.titleColor}`}>
                       {item.icon}
-                      {t[item.titleKey]}
+                      <span>{t[item.titleKey]}</span>
                     </h3>
-                    <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed pl-6">
+                    <p className={`text-xs sm:text-sm leading-relaxed text-center w-full ${item.descColor}`}>
                       {t[item.textKey]}
                     </p>
                   </div>
@@ -13290,27 +13460,78 @@ function App() {
               </div>
             </div>
           </div>
-
         </aside>
       </main>
 
       {/* Bottom Sticky Careers Goal Section */}
-      <footer className="fixed bottom-0 left-0 right-0 z-40 bg-zinc-950/90 backdrop-blur-md border-t border-zinc-900 p-4 shadow-[0_-10px_20px_rgba(0,0,0,0.4)]">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-purple-950/50 border border-purple-500/30 text-purple-400">
-              <Briefcase className="w-5 h-5 animate-pulse" />
+      {(() => {
+        const FOOTER_STYLE = {
+          phase1: {
+            border: 'border-purple-500/20',
+            iconBg: 'bg-purple-950/50',
+            iconBorder: 'border-purple-500/30',
+            iconText: 'text-purple-400',
+            metaText: 'text-purple-400',
+            titleText: 'text-purple-300 drop-shadow-[0_0_8px_rgba(168,85,247,0.3)]',
+            descText: 'text-purple-200/90'
+          },
+          phase2: {
+            border: 'border-pink-500/20',
+            iconBg: 'bg-pink-950/50',
+            iconBorder: 'border-pink-500/30',
+            iconText: 'text-pink-400',
+            metaText: 'text-pink-400',
+            titleText: 'text-pink-300 drop-shadow-[0_0_8px_rgba(236,72,153,0.3)]',
+            descText: 'text-pink-200/90'
+          },
+          phase3: {
+            border: 'border-yellow-500/20',
+            iconBg: 'bg-yellow-950/50',
+            iconBorder: 'border-yellow-500/30',
+            iconText: 'text-yellow-400',
+            metaText: 'text-yellow-400',
+            titleText: 'text-yellow-200 drop-shadow-[0_0_8px_rgba(234,179,8,0.3)]',
+            descText: 'text-yellow-100/90'
+          },
+          phase4: {
+            border: 'border-cyan-500/20',
+            iconBg: 'bg-cyan-950/50',
+            iconBorder: 'border-cyan-500/30',
+            iconText: 'text-cyan-400',
+            metaText: 'text-cyan-400',
+            titleText: 'text-cyan-300 drop-shadow-[0_0_8px_rgba(6,182,212,0.3)]',
+            descText: 'text-cyan-200/90'
+          },
+          phase5: {
+            border: 'border-blue-500/20',
+            iconBg: 'bg-blue-950/50',
+            iconBorder: 'border-blue-500/30',
+            iconText: 'text-blue-400',
+            metaText: 'text-blue-400',
+            titleText: 'text-blue-300 drop-shadow-[0_0_8px_rgba(59,130,246,0.3)]',
+            descText: 'text-blue-200/90'
+          }
+        };
+        const fStyle = FOOTER_STYLE[activePhase] || FOOTER_STYLE.phase1;
+        return (
+          <footer className={`fixed bottom-0 left-0 right-0 z-40 bg-zinc-950/90 backdrop-blur-md border-t ${fStyle.border} p-5 shadow-[0_-10px_20px_rgba(0,0,0,0.4)]`}>
+            <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className={`p-2.5 rounded-xl border transition-colors ${fStyle.iconBg} ${fStyle.iconBorder} ${fStyle.iconText}`}>
+                  <Briefcase className="w-6 h-6 animate-pulse" />
+                </div>
+                <div>
+                  <span className={`text-[10px] font-bold uppercase tracking-widest transition-colors ${fStyle.metaText}`}>{t.macroGoalsTitle}</span>
+                  <h4 className={`text-xs sm:text-sm font-extrabold mt-0.5 uppercase tracking-wide transition-colors ${fStyle.titleText}`}>{activeBlockGoal.title}</h4>
+                </div>
+              </div>
+              <div className={`text-[11px] sm:text-xs md:max-w-xl text-center pl-3 pr-3 w-full md:w-auto transition-colors ${fStyle.descText}`}>
+                {activeBlockGoal.desc}
+              </div>
             </div>
-            <div>
-              <span className="text-[10px] font-bold text-purple-400 uppercase tracking-widest">{t.macroGoalsTitle}</span>
-              <h4 className="text-xs sm:text-sm font-bold text-zinc-100 mt-0.5">{activeBlockGoal.title}</h4>
-            </div>
-          </div>
-          <div className="text-zinc-400 text-[11px] sm:text-xs md:max-w-xl md:text-right border-l-2 md:border-l-0 md:border-r-2 border-purple-500/40 pl-3 md:pl-0 md:pr-3">
-            {activeBlockGoal.desc}
-          </div>
-        </div>
-      </footer>
+          </footer>
+        );
+      })()}
 
       {/* LinkedIn Draft Modal */}
       {linkedinModal.isOpen && (
@@ -13363,12 +13584,12 @@ function App() {
       {/* Quiz Modal Overlay */}
       {activeQuiz && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-zinc-950/90 backdrop-blur-md transition-all">
-          <div className="bg-zinc-900 border border-purple-500/30 rounded-3xl w-full max-w-xl overflow-hidden shadow-2xl relative shadow-purple-500/10">
+          <div className="bg-zinc-900 border border-pink-500/30 rounded-3xl w-full max-w-xl overflow-hidden shadow-2xl relative shadow-pink-500/10">
 
             {/* Progress Bar */}
             <div className="w-full h-1 bg-zinc-950">
               <div
-                className="h-full bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-300"
+                className="h-full bg-pink-500 transition-all duration-300 shadow-[0_0_10px_rgba(236,72,153,0.5)]"
                 style={{ width: `${(Math.min(10, activeQuiz.currentQuestionIndex) / 10) * 100}%` }}
               ></div>
             </div>
@@ -13376,7 +13597,7 @@ function App() {
             {/* Modal Header */}
             <div className="px-6 py-4 bg-zinc-950 flex items-center justify-between border-b border-zinc-800">
               <div>
-                <h3 className="text-xs sm:text-sm font-bold text-purple-400 uppercase tracking-widest flex items-center gap-2">
+                <h3 className="text-xs sm:text-sm font-bold text-pink-500 uppercase tracking-widest flex items-center gap-2">
                   <Code className="w-4 h-4" />
                   <span>{lang === 'pt' ? 'PROVA DE CONHECIMENTO' : 'KNOWLEDGE TEST'}</span>
                 </h3>
