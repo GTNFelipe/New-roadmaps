@@ -23,6 +23,30 @@ import confetti from 'canvas-confetti';
 import { T } from './data/translations';
 import { HABITS, PJ_MANUAL, PHASES } from './data/phases';
 import { QUIZ_BANK } from './data/quizBank';
+
+const getLocalDateMidnight = (timestamp) => {
+  const date = new Date(timestamp);
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+};
+
+const hasMissedWeekday = (start, end) => {
+  if (!start) return false;
+  const dStart = getLocalDateMidnight(start);
+  const dEnd = getLocalDateMidnight(end);
+  if (dEnd.getTime() <= dStart.getTime()) return false;
+
+  let current = new Date(dStart);
+  current.setDate(current.getDate() + 1);
+  while (current.getTime() < dEnd.getTime()) {
+    const dayOfWeek = current.getDay(); // 0 = Sunday, 6 = Saturday
+    if (dayOfWeek !== 0 && dayOfWeek !== 6) {
+      return true;
+    }
+    current.setDate(current.getDate() + 1);
+  }
+  return false;
+};
+
 function App() {
   const [lang, setLang] = useState(() => {
     return localStorage.getItem('mainframeRoadmapLang') || 'pt';
@@ -51,8 +75,7 @@ function App() {
     if (lastCheck) {
       const lastCheckTime = parseInt(lastCheck, 10);
       const now = Date.now();
-      const hoursSinceLast = (now - lastCheckTime) / (1000 * 60 * 60);
-      if (hoursSinceLast > 36) {
+      if (hasMissedWeekday(lastCheckTime, now)) {
         return 0;
       }
     }
@@ -155,9 +178,8 @@ function App() {
       if (!lastCheckTimestamp || prevStreak === 0) {
         return 1;
       }
-      const hoursSinceLast = (now - lastCheckTimestamp) / (1000 * 60 * 60);
-      if (hoursSinceLast > 36) {
-        return 1; // Reset streak due to inactivity
+      if (hasMissedWeekday(lastCheckTimestamp, now)) {
+        return 1; // Reset streak due to inactivity (missed a weekday)
       }
       return prevStreak + 1;
     });
